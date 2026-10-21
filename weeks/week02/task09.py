@@ -45,9 +45,6 @@ def main():
         precision.append(functional.precision(current_pred, y_true))
         recall.append(functional.recall(current_pred, y_true))
 
-        print("y_true:", np.unique(y_true, return_counts=True))
-        print("y_pred range:", np.min(y_pred), np.max(y_pred))
-        print("\nThreshold | TP | FP | FN | Precision | Recall")
 
     figure, axis = plt.subplots(figsize=(8, 5))
 
