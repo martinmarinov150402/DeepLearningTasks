@@ -20,6 +20,6 @@ def main():
     except ModuleNotFoundError as error:
         if error.name == module_name or module_name.startswith(f"{error.name}."):
             raise ValueError(
-                f"Task {task:02d} does not exist in week {week:02d}"
+                f"Task {task:02d} does not exist in week {week:02d}!"
             ) from error
     return 0

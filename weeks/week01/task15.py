@@ -1,11 +1,9 @@
 import numpy as np
 import torch
 
+
 def main():
-    array = np.array([
-        [1., 2., 3.],
-        [4., 5., 6.]
-    ])
+    array = np.array([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
 
     tensor = torch.from_numpy(array)
 

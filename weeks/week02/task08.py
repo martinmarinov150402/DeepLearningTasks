@@ -1,5 +1,7 @@
-import numpy as np
 import importlib
+
+import numpy as np
+
 
 def main():
     functional = importlib.import_module("dl_lib.metrics.functional")
@@ -11,4 +13,3 @@ def main():
     print("precision: ", functional.precision(y_pred, y_true))
     print("recall: ", functional.recall(y_pred, y_true))
     print("f1: ", functional.f1_score(y_pred, y_true))
-    

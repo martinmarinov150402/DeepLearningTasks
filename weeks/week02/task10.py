@@ -1,10 +1,12 @@
 import importlib
-import numpy as np
+
 import matplotlib
+import numpy as np
 
 matplotlib.use("TkAgg")
 
 import matplotlib.pyplot as plt
+
 
 def main():
 
@@ -18,8 +20,7 @@ def main():
 
     sigmoids = [activations.sigmoid(x) for x in x_values]
 
-    figure, axis = plt.subplots()
-
+    _, axis = plt.subplots()
 
     axis.plot(x_values, sigmoids)
 

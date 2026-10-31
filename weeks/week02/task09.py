@@ -1,11 +1,11 @@
 import importlib
-import numpy as np
 
 import matplotlib
+import numpy as np
 
-matplotlib.use("TkAgg");
-
+matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
+
 
 def generate_dataset(n_samples=1000, seed=42):
     rng = np.random.default_rng(seed)
@@ -27,10 +27,10 @@ def generate_dataset(n_samples=1000, seed=42):
     y_pred = np.clip(y_pred, 0, 1)
     return y_pred, y_true
 
-def main():
-    rng = np.random.default_rng(42);
 
-    functional = importlib.import_module("dl_lib.metrics.functional");
+def main():
+
+    functional = importlib.import_module("dl_lib.metrics.functional")
     dataset_size = 1000
     y_pred, y_true = generate_dataset(dataset_size)
 
@@ -45,22 +45,11 @@ def main():
         precision.append(functional.precision(current_pred, y_true))
         recall.append(functional.recall(current_pred, y_true))
 
+    _, axis = plt.subplots(figsize=(8, 5))
 
-    figure, axis = plt.subplots(figsize=(8, 5))
+    axis.plot(thresholds, precision, marker="o", label="precision")
 
-    axis.plot(
-        thresholds,
-        precision,
-        marker="o",
-        label="precision"
-    )
-
-    axis.plot(
-        thresholds,
-        recall,
-        marker="o",
-        label="recall"
-    )
+    axis.plot(thresholds, recall, marker="o", label="recall")
 
     axis.set_title("Precision and recall as the classification threshold rises")
     axis.set_xlabel("threshold")
@@ -70,6 +59,3 @@ def main():
     axis.grid(True)
 
     plt.show()
-
-
-    
